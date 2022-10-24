@@ -1,18 +1,22 @@
 <template>
 
-        <h1> Welcome to a Posts View</h1>
+        <authenticated-layout>
+            <h1> {{post.body}}</h1>
+        </authenticated-layout>
 
 </template>
 <script>
 
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 export default{
     components: {AuthenticatedLayout},
     props:{
-        userPost: Object
+        post: {
+            type: Object
+        }
     },
     mounted() {
-        console.log('post view mounted');
+        console.log(this.post.body);
     }
 }
 </script>
