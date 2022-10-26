@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use App\Http\Requests\PostRequest;
 
@@ -13,10 +15,9 @@ class PostController extends Controller
     //
     public function index()
     {
-        $posts = Post::all();
+//        $posts = Post::all();
         return Inertia::render('Feed/Index', [
-            'name' => 'thatcher',
-            'posts' => $posts
+            'posts' => Post::paginate('3')
         ]);
     }
 
@@ -37,11 +38,12 @@ class PostController extends Controller
     {
         try{
             Post::create([
-                'title' => $request->title,
+                'user_id' => auth()->user()->id,
+                'Title' => $request->Title,
                 'description' =>$request->description,
                 'body' => $request->body
             ]);
-            return Inertia();
+            return Inertia::render('Feed/Index');
         }
         catch(\Throwable $e){
 

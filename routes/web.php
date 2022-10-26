@@ -35,7 +35,8 @@ Route::get('/dashboard', function () {
 Route::controller(PostController::class)->group( function(){
     Route::get('/feed', 'index')->name('feed');
     Route::get('/viewPost/{id}', 'view')->name('view.Post');
-    Route::get('/create/post', 'create')->name('create.post');
+    Route::get('/create/post',  'create')->name('create.post');
+    Route::post('/create/posting', 'store');
 });
 
 

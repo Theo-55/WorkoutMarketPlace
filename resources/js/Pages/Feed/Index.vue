@@ -1,7 +1,7 @@
 <template>
     <authenticated-layout>
 
-    <div class="grid grid-cols-1" v-for="post in posts">
+    <div class="grid grid-cols-1" v-for="post in posts.data" :key="post.id">
         <div class="flex justify-center my-12">
             <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center" >
                 <div class="py-3 px-6 border-b border-gray-300">
@@ -24,8 +24,17 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+        <div class="mt-4 mx-auto " >
+                <Link
+                    class="px-1"
+                    v-for="link in posts.links"
+                    :href="link.url"
+                    v-html="link.label"
+                />
+
+        </div>
     </authenticated-layout>
 
 </template>
@@ -39,10 +48,7 @@ export default {
     props: {
       posts: {
           type: Object
-      },
-        name: {
-          type: String,
-        }
+      }
     },
     mounted() {
         console.log('Hello');
