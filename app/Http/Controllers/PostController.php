@@ -49,7 +49,16 @@ class PostController extends Controller
 
                 return Inertia($e);
         }
+    }
 
+
+    public function search(Request $request)
+    {
+
+//        $parameter = $request->input;
+        return Inertia::render('Feed/Index', [
+            'post' => 'fnewionfoifen'
+        ]);
 
     }
 }

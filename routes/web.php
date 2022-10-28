@@ -37,6 +37,7 @@ Route::controller(PostController::class)->group( function(){
     Route::get('/viewPost/{id}', 'view')->name('view.Post');
     Route::get('/create/post',  'create')->name('create.post');
     Route::post('/create/posting', 'store');
+    Route::get('post/search', 'search');
 });
 
 
