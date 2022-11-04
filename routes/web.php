@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,10 @@ Route::controller(PostController::class)->group( function(){
     Route::get('/create/post',  'create')->name('create.post');
     Route::post('/create/posting', 'store');
     Route::get('post/search', 'search');
+});
+
+Route::controller(SettingsController::class)->group( function(){
+    Route::get('/Settings' , 'index')->name('settingsHome');
 });
 
 

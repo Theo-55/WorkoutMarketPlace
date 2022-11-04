@@ -19,7 +19,7 @@ class PostFactory extends Factory
     {
         return [
             //
-            'user_id' => User::all()->random()->id,
+            'user_id' => '1',
             'title' => fake()->name(),
             'description' => fake()->unique()->text(),
             'body' => fake()->unique()->text()

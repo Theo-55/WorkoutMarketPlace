@@ -41,6 +41,12 @@ const showingNavigationDropdown = ref(false);
                                     Create Posting
                                 </NavLink>
                             </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink :href="route('settingsHome')" >
+                                    Settings
+                                </NavLink>
+                            </div>
+
 
                         </div>
 
@@ -100,7 +106,14 @@ const showingNavigationDropdown = ref(false);
                             <ResponsiveNavLink :href="route('logout')" method="post" as="button">
                                 Log Out
                             </ResponsiveNavLink>
+
+                            <ResponsiveNavLink :href="route('settingsHome')" >
+                                Settings
+                            </ResponsiveNavLink>
                         </div>
+                         <!-- <div class="mt-3 space-y-1">
+
+                        </div> -->
                     </div>
                 </div>
             </nav>
